@@ -6,7 +6,7 @@ import { RiTimeLine } from "react-icons/ri";
 const TopLeftNavbar = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`absolute top-0  left-0 h-full w-64 bg-gray-900 text-white transform ${
+      className={`fixed top-0 left-0 h-full w-64 bg-gray-900 text-white transform z-50 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out sidebar`}
     >
@@ -16,7 +16,8 @@ const TopLeftNavbar = ({ isOpen, onClose }) => {
       </div>
 
       {/* Sidebar Links */}
-      <ul className="p-4 space-y-4"> <li>
+      <ul className="p-4 space-y-4">
+        <li>
           <Link to="/" className="flex items-center gap-2 py-2 px-4 hover:bg-gray-700 rounded" onClick={onClose}>
             <FaHome size={20} /> Home
           </Link>

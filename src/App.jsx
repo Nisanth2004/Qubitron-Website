@@ -10,6 +10,7 @@ import CommitteMembers from './components/Committee/CommitteMembers';
 import Timeline from './components/Utils/Timeline';
 import AboutUs from './components/AboutUs/Aboutus';
 import Home from './components/Home';
+import WebDev from './components/Committee/WebDev';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,6 +30,7 @@ function App() {
               <Route path='/committee-members' element={<CommitteMembers />} />
               <Route path='/event-timeline' element={<Timeline isSidebarOpen={isSidebarOpen} />} />
               <Route path='/about-us' element={<AboutUs />} />
+              <Route path='/web-devs' element={<WebDev />} />
             </Routes>
             <br />
             <br />

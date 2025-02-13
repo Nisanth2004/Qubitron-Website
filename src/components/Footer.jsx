@@ -65,7 +65,7 @@ const Footer = () => {
             <p className="text-gray-300 mb-2">Email: info@qubitron.com</p>
             <p className="text-gray-300 mb-4">Phone: +1 234 567 890</p>
             <button 
-              className="text-blue-400 font-semibold hover:underline flex items-center gap-1"
+              className="text-white font-semibold hover:underline flex items-center gap-1"
               onClick={() => setShowModal(true)}
             >
               Contact Us <FaEnvelope />
