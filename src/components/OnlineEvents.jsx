@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import img2 from '../images/Melody master.png'; // Replace with your actual image paths
-import img3 from '../images/Meme_magnus.png';
 import img4 from '../images/Shutter stock.png';
 import img5 from '../images/artophobia.png';
 import img6 from '../images/Funk fusion.png';
@@ -9,10 +8,9 @@ import '../css/OnlineEvents.css'; // Import the CSS file
 
 const items = [
   { id: 1, image: img2, title: 'Melody Master', content: 'In the rapidly evolving landscape of the digital age, the concept of digital ideas represents the cornerstone of innovation and transformation.' },
-  { id: 2, image: img3, title: 'Meme Magnus', content: 'Testing involves rigorous evaluation under various conditions to identify potential issues.' },
-  { id: 3, image: img4, title: 'Shutter Stock', content: 'Client satisfaction stands as a pivotal benchmark for the success of any business.' },
-  { id: 4, image: img5, title: 'Artophobia', content: 'Providing unparalleled 24x7 support to our clients.' },
-  { id: 5, image: img6, title: 'Funk Fusion', content: 'In the rapidly evolving landscape of the digital age, the concept of digital ideas represents the cornerstone of innovation and transformation.' },
+  { id: 2, image: img4, title: 'Shutter Stock', content: 'Client satisfaction stands as a pivotal benchmark for the success of any business.' },
+  { id: 3, image: img5, title: 'Artophobia', content: 'Providing unparalleled 24x7 support to our clients.' },
+  { id: 4, image: img6, title: 'Funk Fusion', content: 'In the rapidly evolving landscape of the digital age, the concept of digital ideas represents the cornerstone of innovation and transformation.' },
 ];
 
 // Shuffle the items for random order

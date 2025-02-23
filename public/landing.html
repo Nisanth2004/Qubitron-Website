@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Updated path for CSS -->
+</head>
+<body class="landing-page">
+
+    <!-- Preloader -->
+    <div id="loading-screen">
+        <p>Loading...</p>
+    </div>
+
+    <!-- WebGL Animation -->
+    <div class="webgl"></div>
+
+    <!-- Buttons -->
+    <button id="navigateButton">Go to Technical Events</button>
+
+    <div id="root"></div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <!-- Three.js Effect -->
+    <script src="/effect.js" type="module"></script>
+
+    <script>
+        // Ensure button redirects correctly
+        document.getElementById("navigateButton").addEventListener("click", () => {
+            window.location.href = "/techincal-events"; // Redirect to React app
+        });
+
+        // Hide loading screen when Three.js is ready
+        window.addEventListener("load", function() {
+            console.log("Page Loaded"); // Debugging
+            document.getElementById("loading-screen").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

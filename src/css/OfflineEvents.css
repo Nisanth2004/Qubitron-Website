@@ -136,3 +136,18 @@
       transform: scale(1.1);
     }
   }
+
+  .register-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 10px; /* Space above the button */
+    font-size: 16px; /* Font size */
+  }
+  
+  .register-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }

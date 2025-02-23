@@ -1,5 +1,3 @@
-
-
 // import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 // import { FaLaptopCode, FaGamepad, FaTools, FaDownload, FaBars } from "react-icons/fa";
@@ -7,7 +5,7 @@
 // import brochure from "../assets/NIS.pdf";
 // import "../css/NavBar.scss"; // Import the SCSS file
 // import img from "../images/qubitgold.png";
-// import '../css/DropDown.scss'
+// import "../css/DropDown.scss"
 
 // const NavBar = () => {
 //   const [showTooltip, setShowTooltip] = useState(false);
@@ -55,7 +53,7 @@
 //       {/* Sidebar */}
 //       <TopLeftNavBar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
-//       <div className="header relative md:mb-[10rem]">
+//       <div className="header relative md:mb-[5rem]">
 //         {/* Logo */}
 //         <div className="header__logo w-[10rem] md:w-auto w-[8rem] md:ml-40">
 //           <Link to="/" className="text-3xl font-extrabold tracking-wide text-white hover:text-blue-900 transition">
@@ -68,20 +66,23 @@
 //           <ul className="navbar__menu">
 //             <NavItem link="/techincal-events" label="Technical" icon={<FaLaptopCode size={22} />} />
 //             {/* Non-Technical Events Dropdown */}
-//             <li className="navbar__item relative">
-//               <div
-//                 className="navbar__link cursor-pointer"
-//                 onClick={toggleNonTechDropdown}
-//                 onMouseEnter={() => setNonTechDropdownOpen(true)}
-//                 onMouseLeave={() => setNonTechDropdownOpen(false)}
-//               >
+//             <li
+//               className="navbar__item relative"
+//               onMouseEnter={() => setNonTechDropdownOpen(true)} // Open dropdown on hover
+//               onMouseLeave={() => setNonTechDropdownOpen(false)} // Close dropdown on mouse leave
+//             >
+//               <div className="navbar__link cursor-pointer">
 //                 <FaGamepad size={22} />
-//                 <span>Non-Technical</span>
+//                 <span className="text-yellow-500">Non-Technical</span>
 //               </div>
 //               {isNonTechDropdownOpen && (
-//                 <ul className="dropdown-menu absolute top-full left-0 bg-gray-800 text-white p-2 rounded-md shadow-md">
+//                 <ul
+//                   className="dropdown-menu absolute top-full left-0 bg-gray-800 text-white p-2 rounded-md shadow-md"
+//                   onMouseEnter={() => setNonTechDropdownOpen(true)} // Keep dropdown open when hovering over it
+//                   onMouseLeave={() => setNonTechDropdownOpen(false)} // Close dropdown when mouse leaves
+//                 >
 //                   <li>
-//                     <Link to="/offline-events" className="block px-4 py-2 hover:bg-gray-700">
+//                     <Link to="/offline-events" className="block px-4 py-2 hover:bg-gray-700 text-yellow-500">
 //                       Offline Events
 //                     </Link>
 //                   </li>
@@ -168,12 +169,21 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaLaptopCode, FaGamepad, FaTools, FaDownload, FaBars } from "react-icons/fa";
+import {
+  FaLaptopCode,
+  FaGamepad,
+  FaTools,
+  FaDownload,
+  FaBars,
+  FaInfoCircle,
+  FaCode,
+  FaUsers,
+} from "react-icons/fa";
 import TopLeftNavBar from "./TopLeftNavbar"; // Sidebar Component
 import brochure from "../assets/NIS.pdf";
 import "../css/NavBar.scss"; // Import the SCSS file
 import img from "../images/qubitgold.png";
-import "../css/DropDown.scss"
+import "../css/DropDown.scss";
 
 const NavBar = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -223,14 +233,14 @@ const NavBar = () => {
 
       <div className="header relative md:mb-[5rem]">
         {/* Logo */}
-        <div className="header__logo w-[10rem] md:w-auto w-[8rem] md:ml-40">
+        <div className="header__logo w-[10rem] md:w-auto w-[8rem] md:ml-15 mr-[3rem]">
           <Link to="/" className="text-3xl font-extrabold tracking-wide text-white hover:text-blue-900 transition">
             <img src={img} alt="logo" className="" />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="navbar !hidden md:!flex">
+        <nav className="navbar mr-[5rem] !hidden md:!flex">
           <ul className="navbar__menu">
             <NavItem link="/techincal-events" label="Technical" icon={<FaLaptopCode size={22} />} />
             {/* Non-Technical Events Dropdown */}
@@ -241,7 +251,7 @@ const NavBar = () => {
             >
               <div className="navbar__link cursor-pointer">
                 <FaGamepad size={22} />
-                <span>Non-Technical</span>
+                <span className="text-yellow-500">Non-Technical</span>
               </div>
               {isNonTechDropdownOpen && (
                 <ul
@@ -250,7 +260,7 @@ const NavBar = () => {
                   onMouseLeave={() => setNonTechDropdownOpen(false)} // Close dropdown when mouse leaves
                 >
                   <li>
-                    <Link to="/offline-events" className="block px-4 py-2 hover:bg-gray-700">
+                    <Link to="/offline-events" className="block px-4 py-2 hover:bg-gray-700 text-yellow-500">
                       Offline Events
                     </Link>
                   </li>
@@ -263,6 +273,9 @@ const NavBar = () => {
               )}
             </li>
             <NavItem link="/workshops" label="Workshop" icon={<FaTools size={22} />} />
+            <NavItem link="/about-us" label="About Us" icon={<FaInfoCircle size={22} />} /> {/* Added About Us */}
+            <NavItem link="/web-developers" label="Web Developers" icon={<FaCode size={22} />} /> {/* Added Web Developers */}
+            <NavItem link="/committee-members" label="Committee" icon={<FaUsers size={22} />} /> {/* Added Committee */}
             <li className="navbar__item">
               <div
                 className="relative flex items-center"
@@ -309,6 +322,15 @@ const NavBar = () => {
             </div>
             <Link to="/workshops" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
               <FaTools size={22} /> Workshop
+            </Link>
+            <Link to="/about-us" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
+              <FaInfoCircle size={22} /> About Us {/* Added About Us */}
+            </Link>
+            <Link to="/web-developers" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
+              <FaCode size={22} /> Web Developers {/* Added Web Developers */}
+            </Link>
+            <Link to="/committee" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
+              <FaUsers size={22} /> Committee {/* Added Committee */}
             </Link>
             <button onClick={handleDownload} className='text-2xl my-10 cursor-pointer'>
               <FaDownload size={22} /> Download Brochure

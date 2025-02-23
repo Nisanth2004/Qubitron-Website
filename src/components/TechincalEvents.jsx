@@ -67,7 +67,7 @@ const TechincalEvents = () => {
       <FlipCard
         frontImage={img2}
         title="PROBE AND PURSUIT"
-        content="In the rapidly evolving landscape of the digital age, the concept of digital ideas represents the cornerstone of innovation and transformation."
+        content="'PROBE AND PURSUIT'  An event to test the circuit designing and debugging skills."
         rules={rules}
         eventDetails={eventDetails}
       />
@@ -88,7 +88,7 @@ const TechincalEvents = () => {
       <FlipCard
         frontImage={img5}
         title="EMBEDX"
-        content="Providing unparalleled 24x7 support to our clients."
+        content="EMBEDX is an offline event where participants design,program and troubleshoot microcontroller based circuits (mainly using Arduino UNO) "
         rules={rules}
         eventDetails={eventDetails}
       />
@@ -108,7 +108,7 @@ const TechincalEvents = () => {
       />
       <FlipCard
         frontImage={img8}
-        title="PIXEL PROS"
+        title="WEB LEAGUE"
         content="In the rapidly evolving landscape of the digital age, the concept of digital ideas represents the cornerstone of innovation and transformation."
         rules={rules}
         eventDetails={eventDetails}
