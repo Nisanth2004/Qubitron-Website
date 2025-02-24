@@ -18,6 +18,7 @@ import WebDev from './components/Committee/WebDev';
 import Workshop from './components/Workshop';
 import PricingCard from './components/PricingCard';
 
+
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 

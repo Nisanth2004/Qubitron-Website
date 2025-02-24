@@ -1,0 +1,57 @@
+// MobileNav.scss
+.mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+  }
+  
+  .mobile-nav-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    backdrop-filter: blur(10px); // Smooth blur effect
+    padding: 1.5rem;
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-nav-container button {
+    transition: color 0.2s ease;
+  }
+  
+  .mobile-nav-container button:hover {
+    color: #f59e0b; // Yellow hover color
+  }
+  
+  .mobile-nav-container a,
+  .mobile-nav-container button {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .mobile-nav-container a:hover,
+  .mobile-nav-container button:hover {
+    color: #f59e0b; // Yellow hover color
+  }
+  
+  .mobile-nav-container ul {
+    list-style: none;
+    padding-left: 1rem;
+  }
+  
+  .mobile-nav-container ul li {
+    margin-bottom: 0.5rem;
+  }

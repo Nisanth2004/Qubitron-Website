@@ -1,11 +1,20 @@
 // import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
-// import { FaLaptopCode, FaGamepad, FaTools, FaDownload, FaBars } from "react-icons/fa";
+// import {
+//   FaLaptopCode,
+//   FaGamepad,
+//   FaTools,
+//   FaDownload,
+//   FaBars,
+//   FaInfoCircle,
+//   FaCode,
+//   FaUsers,
+// } from "react-icons/fa";
 // import TopLeftNavBar from "./TopLeftNavbar"; // Sidebar Component
 // import brochure from "../assets/NIS.pdf";
 // import "../css/NavBar.scss"; // Import the SCSS file
 // import img from "../images/qubitgold.png";
-// import "../css/DropDown.scss"
+// import "../css/DropDown.scss";
 
 // const NavBar = () => {
 //   const [showTooltip, setShowTooltip] = useState(false);
@@ -55,14 +64,14 @@
 
 //       <div className="header relative md:mb-[5rem]">
 //         {/* Logo */}
-//         <div className="header__logo w-[10rem] md:w-auto w-[8rem] md:ml-40">
+//         <div className="header__logo w-[10rem] md:w-auto w-[8rem] md:ml-15 mr-[3rem]">
 //           <Link to="/" className="text-3xl font-extrabold tracking-wide text-white hover:text-blue-900 transition">
 //             <img src={img} alt="logo" className="" />
 //           </Link>
 //         </div>
 
 //         {/* Desktop Navigation */}
-//         <nav className="navbar !hidden md:!flex">
+//         <nav className="navbar mr-[5rem] !hidden md:!flex">
 //           <ul className="navbar__menu">
 //             <NavItem link="/techincal-events" label="Technical" icon={<FaLaptopCode size={22} />} />
 //             {/* Non-Technical Events Dropdown */}
@@ -95,6 +104,9 @@
 //               )}
 //             </li>
 //             <NavItem link="/workshops" label="Workshop" icon={<FaTools size={22} />} />
+//             <NavItem link="/about-us" label="About Us" icon={<FaInfoCircle size={22} />} /> {/* Added About Us */}
+//             <NavItem link="/web-developers" label="Web Developers" icon={<FaCode size={22} />} /> {/* Added Web Developers */}
+//             <NavItem link="/committee-members" label="Committee" icon={<FaUsers size={22} />} /> {/* Added Committee */}
 //             <li className="navbar__item">
 //               <div
 //                 className="relative flex items-center"
@@ -142,6 +154,15 @@
 //             <Link to="/workshops" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
 //               <FaTools size={22} /> Workshop
 //             </Link>
+//             <Link to="/about-us" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
+//               <FaInfoCircle size={22} /> About Us {/* Added About Us */}
+//             </Link>
+//             <Link to="/web-developers" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
+//               <FaCode size={22} /> Web Developers {/* Added Web Developers */}
+//             </Link>
+//             <Link to="/committee" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
+//               <FaUsers size={22} /> Committee {/* Added Committee */}
+//             </Link>
 //             <button onClick={handleDownload} className='text-2xl my-10 cursor-pointer'>
 //               <FaDownload size={22} /> Download Brochure
 //             </button>
@@ -184,12 +205,13 @@ import brochure from "../assets/NIS.pdf";
 import "../css/NavBar.scss"; // Import the SCSS file
 import img from "../images/qubitgold.png";
 import "../css/DropDown.scss";
+import MobileNav from "./MobileNav"; // Import the MobileNav component
 
 const NavBar = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isMobileNavVisible, setMobileNavVisible] = useState(false);
-  const [isNonTechDropdownOpen, setNonTechDropdownOpen] = useState(false); // State for dropdown
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isNonTechDropdownOpen, setNonTechDropdownOpen] = useState(false);
 
   const handleDownload = () => {
     const fileUrl = brochure;
@@ -206,11 +228,11 @@ const NavBar = () => {
   };
 
   const toggleMobileNav = () => {
-    setMobileNavVisible(!isMobileNavVisible);
+    setMobileNavOpen((prev) => !prev);
   };
 
   const toggleNonTechDropdown = () => {
-    setNonTechDropdownOpen((prev) => !prev); // Toggle dropdown
+    setNonTechDropdownOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -231,6 +253,9 @@ const NavBar = () => {
       {/* Sidebar */}
       <TopLeftNavBar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
+      {/* Mobile Navigation */}
+      <MobileNav isOpen={isMobileNavOpen} onClose={toggleMobileNav} />
+
       <div className="header relative md:mb-[5rem]">
         {/* Logo */}
         <div className="header__logo w-[10rem] md:w-auto w-[8rem] md:ml-15 mr-[3rem]">
@@ -246,8 +271,8 @@ const NavBar = () => {
             {/* Non-Technical Events Dropdown */}
             <li
               className="navbar__item relative"
-              onMouseEnter={() => setNonTechDropdownOpen(true)} // Open dropdown on hover
-              onMouseLeave={() => setNonTechDropdownOpen(false)} // Close dropdown on mouse leave
+              onMouseEnter={() => setNonTechDropdownOpen(true)}
+              onMouseLeave={() => setNonTechDropdownOpen(false)}
             >
               <div className="navbar__link cursor-pointer">
                 <FaGamepad size={22} />
@@ -256,8 +281,8 @@ const NavBar = () => {
               {isNonTechDropdownOpen && (
                 <ul
                   className="dropdown-menu absolute top-full left-0 bg-gray-800 text-white p-2 rounded-md shadow-md"
-                  onMouseEnter={() => setNonTechDropdownOpen(true)} // Keep dropdown open when hovering over it
-                  onMouseLeave={() => setNonTechDropdownOpen(false)} // Close dropdown when mouse leaves
+                  onMouseEnter={() => setNonTechDropdownOpen(true)}
+                  onMouseLeave={() => setNonTechDropdownOpen(false)}
                 >
                   <li>
                     <Link to="/offline-events" className="block px-4 py-2 hover:bg-gray-700 text-yellow-500">
@@ -273,9 +298,9 @@ const NavBar = () => {
               )}
             </li>
             <NavItem link="/workshops" label="Workshop" icon={<FaTools size={22} />} />
-            <NavItem link="/about-us" label="About Us" icon={<FaInfoCircle size={22} />} /> {/* Added About Us */}
-            <NavItem link="/web-developers" label="Web Developers" icon={<FaCode size={22} />} /> {/* Added Web Developers */}
-            <NavItem link="/committee-members" label="Committee" icon={<FaUsers size={22} />} /> {/* Added Committee */}
+            <NavItem link="/about-us" label="About Us" icon={<FaInfoCircle size={22} />} />
+            <NavItem link="/web-developers" label="Web Developers" icon={<FaCode size={22} />} />
+            <NavItem link="/committee-members" label="Committee" icon={<FaUsers size={22} />} />
             <li className="navbar__item">
               <div
                 className="relative flex items-center"
@@ -295,51 +320,10 @@ const NavBar = () => {
           </ul>
         </nav>
 
-        {/* Mobile Navigation */}
-        <nav className={`navbar-mob md:hidden absolute top-0 bg-gray-800 p-10 text-gray-200 h-screen w-[70%] transition-all duration-300 ease-in-out ${isMobileNavVisible ? 'right-0' : 'right-full'}`}>
-          <span className='absolute top-5 left-5 cursor-pointer' onClick={toggleMobileNav}>
-            <i className="fa-regular fa-2xl fa-circle-xmark"></i>
-          </span>
-          <div className="flex my-auto h-1/2 items-center justify-center flex-col">
-            <Link to="/techincal-events" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
-              <FaLaptopCode size={22} /> Technical
-            </Link>
-            {/* Non-Technical Events Dropdown for Mobile */}
-            <div className="text-2xl my-10 cursor-pointer" onClick={toggleMobileNav}>
-              <FaGamepad size={22} /> Non-Technical
-              <ul className="ml-4 mt-2">
-                <li>
-                  <Link to="/offline-events" className="block py-1 hover:bg-gray-700">
-                    Offline Events
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/online-events" className="block py-1 hover:bg-gray-700">
-                    Online Events
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <Link to="/workshops" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
-              <FaTools size={22} /> Workshop
-            </Link>
-            <Link to="/about-us" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
-              <FaInfoCircle size={22} /> About Us {/* Added About Us */}
-            </Link>
-            <Link to="/web-developers" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
-              <FaCode size={22} /> Web Developers {/* Added Web Developers */}
-            </Link>
-            <Link to="/committee" className='text-2xl my-10 cursor-pointer' onClick={toggleMobileNav}>
-              <FaUsers size={22} /> Committee {/* Added Committee */}
-            </Link>
-            <button onClick={handleDownload} className='text-2xl my-10 cursor-pointer'>
-              <FaDownload size={22} /> Download Brochure
-            </button>
-          </div>
-        </nav>
-
         {/* Mobile Menu Toggle */}
-        <i className="fa-solid fa-bars fa-2xl ml-auto text-yellow-600 md:hidden cursor-pointer" onClick={toggleMobileNav}></i>
+        <button className="md:hidden ml-auto text-yellow-600" onClick={toggleMobileNav}>
+          <FaBars size={24} />
+        </button>
       </div>
     </>
   );

@@ -1,0 +1,78 @@
+
+
+.discount-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1e1e1e; /* Dark gray background for contrast */
+    padding: 40px; /* Increased padding for more space */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* White shadow for contrast */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    max-width: 900px; /* Slightly wider banner */
+    margin: 40px auto; /* Added more margin for spacing */
+    overflow: hidden;
+  }
+  
+  .banner-left {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px; /* Increased space between image and content */
+  }
+  
+  .banner-image {
+    width: 200px; /* Slightly larger image */
+    height: auto;
+    border-radius: 10px; /* Rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* White shadow for the image */
+  }
+  
+  .offer-heading {
+    font-size: 28px; /* Larger font size */
+    margin-top: 15px; /* More space above the heading */
+    color: #ff6f61; /* Creative color for the heading */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .banner-content {
+    text-align: left;
+  }
+  
+  .banner-content h1 {
+    font-size: 56px; /* Larger font size */
+    margin: 0;
+    color: #ff6f61; /* Creative color for the discount */
+  }
+  
+  .banner-content h3 {
+    font-size: 24px; /* Larger font size */
+    margin: 15px 0; /* More space around the subheading */
+    color: #fff; /* White color for subheading */
+  }
+  
+  .banner-content p {
+    font-size: 18px; /* Larger font size */
+    margin: 15px 0 25px; /* More space around the text */
+    color: #ccc; /* Light gray color for the text */
+  }
+  
+  .redeem-button {
+    background-color: #ff6f61; /* Creative color for the button */
+    color: #000; /* Black text for contrast */
+    border: none;
+    padding: 15px 30px; /* Larger button */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.3); /* Shadow for the button */
+  }
+  
+  .redeem-button:hover {
+    background-color: #ff4a3d; /* Darker shade on hover */
+  }
